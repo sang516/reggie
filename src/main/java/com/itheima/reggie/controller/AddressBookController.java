@@ -73,12 +73,21 @@ public class AddressBookController {
         return R.success(addressBook);
     }
 
+    /**
+     * 更新地址信息
+     * @param addressBook
+     * @return
+     */
     @PutMapping
     public R<String> update(@RequestBody AddressBook addressBook){
         addressBookService.updateById(addressBook);
         return R.success("地址已更新");
     }
 
+    /**
+     * 更新默认地址
+     * @return
+     */
     @GetMapping("/default")
     public R<AddressBook> getAddress(){
         LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
